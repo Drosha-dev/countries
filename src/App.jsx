@@ -45,8 +45,8 @@ function App() {
     <>
       <div className='country-form'>
         Search : <Search value={search} search={handleSearch}/>
-        {/* <Content filtered={filteredCountries}/> */}
-        {
+        <Content filtered={filteredCountries} countrySelect={handleCountrySelect}/>
+        {/* {
           filteredCountries.length > 1 && filteredCountries.length < 10 && filteredCountries.map((p) => <CountryList country={p} countrySelect={handleCountrySelect}/>)
         } 
         {
@@ -56,7 +56,7 @@ function App() {
           filteredCountries.length >= 10 &&  (
             <p>Too many results, narrow your search</p>
           ) 
-        }
+        } */}
       </div>
     </>
   )
