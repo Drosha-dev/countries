@@ -4,7 +4,7 @@ const Country = ({ country }) => {
 
     const { name, capital, area, languages, flag } = country;
 
-    console.log(country);
+
     
 
     return (
@@ -20,7 +20,9 @@ const Country = ({ country }) => {
                     <li key={lang}>{lang}</li>
                 ))}
             </ul>
-            <img src={flag} width='200px' />
+            <div>
+            <p className="flag">{flag}</p>
+            </div>
         </div>
     )
 }

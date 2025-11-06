@@ -2,11 +2,10 @@ import CountryList from "./CountryList";
 import Country from "./Country";
 
 
-const Content = ({ countries, filtered }) => {
+const Content = ({  filtered }) => {
 
-    console.log(filtered, 'Filtered');
-    console.log(countries.name, 'countries');
-
+    console.log(filtered);
+    
 
     return (<>
         <div>

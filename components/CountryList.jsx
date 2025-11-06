@@ -1,6 +1,6 @@
+import Country from "./Country";
 
-
-const CountryList = ({country}) => {
+const CountryList = ({country, countrySelect}) => {
 
    console.log(country);
    
@@ -8,6 +8,7 @@ const CountryList = ({country}) => {
     return (<>
     
         <p>{country.name.common}</p>
+        <button onClick={() => countrySelect(country)}>Hello</button>
 
     </>)
 }
