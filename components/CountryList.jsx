@@ -1,13 +1,13 @@
 
 
-const CountryList = ({countryName}) => {
+const CountryList = ({country}) => {
 
-   console.log(countryName);
+   console.log(country);
    
     
     return (<>
     
-        <p>{countryName}</p>
+        <p>{country.name.common}</p>
 
     </>)
 }

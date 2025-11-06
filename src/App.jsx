@@ -4,6 +4,7 @@ import Search from '../components/Search';
 import './App.css'
 import CountryList from '../components/CountryList';
 import Country from '../components/Country';
+import Content from '../components/Content';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -13,9 +14,6 @@ function App() {
     countryService.getAll().then(initialCountries => {
       setCountries(initialCountries);
     })
-
-    
-    
   },[])
 
   const filtered = countries.filter((country) => 
@@ -31,8 +29,9 @@ function App() {
     <>
     <div className='country-form'>
       Search : <Search value={search} search={handleSearch}/>
-      {
-        filtered.length > 1 && filtered.length < 10 && filtered.map((p) => <CountryList countryName={p.name.common} />)
+      <Content filtered={filtered} countries={countries}/>
+      {/* {
+        filtered.length > 1 && filtered.length < 10 && filtered.map((p) => <CountryList country={p}/>)
       } 
       {
         filtered.length === 1 && <Country country={filtered[0]} />
@@ -41,7 +40,7 @@ function App() {
         filtered.length >= 10 &&  (
           <p>Too many results, narrow your search</p>
         ) 
-      }
+      } */}
     </div>
     </>
   )
