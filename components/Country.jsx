@@ -1,17 +1,12 @@
+import Weather from "./Weather";
 
-
-const Country = ({ country }) => {
-
-    const { name, capital, area, languages, flag } = country;
-
-
-    
+const Country = ({ country: {name,capital,area, languages, flag, latlng: [lat,lng]} }) => {
 
     return (
         <div>
             <h1>{name.common}</h1>
-            <p>{capital}</p>
-            <p>{area}</p>
+            <p>Capital: {capital}</p>
+            <p>Area Code: {area}</p>
             <h2>Languages</h2>
             <ul>
                 
@@ -23,6 +18,7 @@ const Country = ({ country }) => {
             <div>
             <p className="flag">{flag}</p>
             </div>
+            <Weather lat={lat} lng={lng} capital={capital}/>
         </div>
     )
 }
