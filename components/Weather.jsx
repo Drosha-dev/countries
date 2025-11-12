@@ -12,9 +12,6 @@ const Weather = ({ lat, lng, capital }) => {
         })
     }, [lat, lng])
 
-    console.log(weather);
-
-
     return (<>
         {
             weather ? (

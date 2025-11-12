@@ -1,14 +1,15 @@
 import Country from "./Country";
 
-const CountryList = ({country, countrySelect}) => {
+const CountryList = ({country, countrySelect,favoriteSelect}) => {
 
-   console.log(country);
+   
    
     
     return (<>
     
         <p>{country.name.common}</p>
-        <button onClick={() => countrySelect(country)}>Hello</button>
+        <button onClick={() => countrySelect(country)}>Select</button>
+        <button onClick={() => favoriteSelect(country)}>Add to Favorites</button>
 
     </>)
 }

@@ -5,11 +5,13 @@ import './App.css'
 import CountryList from '../components/CountryList';
 import Country from '../components/Country';
 import Content from '../components/Content';
+import Favorites from '../components/Favorites';
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [search, setSearchParam] = useState('');
-  const [filteredCountries, setFilteredCountries] = useState([])
+  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [favorites,setFavorites] = useState([]);
 
   useEffect(() => {
     countryService.getAll().then(initialCountries => {
@@ -36,8 +38,19 @@ function App() {
 
   const handleCountrySelect = (country) => {
       setFilteredCountries({country})
-      console.log(country);
       setSearchParam(country.name.common)
+  }
+  const handleFavoriteSelect = (country) => {
+        
+    const newFavorite = favorites.concat({country})
+  
+    
+    setFavorites(newFavorite)
+    
+    
+    //setFavorites(favorites.concat({country}))
+    
+    
   }
 
 
@@ -45,19 +58,9 @@ function App() {
     <>
       <div className='country-form'>
         Search : <Search value={search} search={handleSearch}/>
-        <Content filtered={filteredCountries} countrySelect={handleCountrySelect}/>
-        {/* {
-          filteredCountries.length > 1 && filteredCountries.length < 10 && filteredCountries.map((p) => <CountryList country={p} countrySelect={handleCountrySelect}/>)
-        } 
-        {
-          filteredCountries.length === 1 && <Country country={filteredCountries[0]} />
-        }
-        {
-          filteredCountries.length >= 10 &&  (
-            <p>Too many results, narrow your search</p>
-          ) 
-        } */}
+        <Content filtered={filteredCountries} countrySelect={handleCountrySelect} favoriteSelect={handleFavoriteSelect}/>
       </div>
+      <Favorites favorites={favorites} />
     </>
   )
 }
