@@ -41,16 +41,17 @@ function App() {
       setSearchParam(country.name.common)
   }
   const handleFavoriteSelect = (country) => {
-        
-    const newFavorite = favorites.concat({country})
-  
+        // Looking for if country has already been added based off area code
+    const countryFound = favorites.find(item => item.country.area ===country.area)
     
-    setFavorites(newFavorite)
-    
+    if(countryFound !== undefined){
+      alert("Country has already been added")
+    } else{
+      const newFavorite = favorites.concat({country})
+      setFavorites(newFavorite)
+    }
     
     //setFavorites(favorites.concat({country}))
-    
-    
   }
 
 

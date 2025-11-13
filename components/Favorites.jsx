@@ -1,4 +1,4 @@
-
+import Country from "./Country";
 
 const Favorites = ({ favorites }) => {
 
@@ -12,9 +12,12 @@ const Favorites = ({ favorites }) => {
             <h1>Favorite List</h1>
             {
                 favorites.length > 0 ? (
-                    favorites.map((f) => (<p>{f.country.name.common}</p>))
+                    favorites.map((f) => (<><p>{f.country.name.common}</p>
+                    <button></button>
+                    
+                    </> ))
                 ) : (
-                    <p>No favoites yet</p>
+                    <p>No favorites yet</p>
                 )
             }
 
